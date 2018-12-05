@@ -3,8 +3,10 @@
  */
 package com.github.pavinan.java.devextreme.helpers.datasource;
 
-public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class UnitTests {
+    @Test public void test1() {        
     }
 }
