@@ -27,4 +27,5 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.antlr:antlr4:4.7.1'
 }

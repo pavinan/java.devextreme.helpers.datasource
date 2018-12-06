@@ -3,10 +3,34 @@
  */
 package com.github.pavinan.java.devextreme.helpers.datasource;
 
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.v4.parse.ANTLRParser;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.awt.List;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
 public class UnitTests {
-    @Test public void test1() {        
+
+    private WhereClauseBuilder builder = new WhereClauseBuilder();
+
+    @Test
+    public void test1() throws Exception {
+        String json = "[\"CustomerID\",\"=\",\"ALFKI\"]";
+
+        parseAndTest(json);
+    }
+
+    private void parseAndTest(String json) throws Exception {
+
+        JsonArray jArray = (JsonArray) (new JsonParser().parse(json));
+        System.out.println(json);
+        System.out.println();
+
+        String sql = builder.buildFor(jArray);
+        
     }
 }
