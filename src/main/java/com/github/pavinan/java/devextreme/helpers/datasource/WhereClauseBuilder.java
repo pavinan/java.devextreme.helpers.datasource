@@ -52,7 +52,7 @@ public class WhereClauseBuilder {
                         query.append(" and ");
                     }
                 }
-            } else if (jsonArray.get(0).isJsonPrimitive() && jsonArray.getAsString() == "!") {
+            } else if (jsonArray.get(0).isJsonPrimitive() && jsonArray.get(0).getAsString().equals("!")) {
 
                 // ["!", ["col", "=", true]]
                 // or
@@ -62,7 +62,7 @@ public class WhereClauseBuilder {
 
                 negateJsonArray(jArray);
 
-                this.parseJArrayConditions(jsonArray, query);
+                this.parseJArrayConditions(jArray, query);
             } else {
 
                 Exception ex = new Exception("Unknown 2d array");
@@ -78,10 +78,10 @@ public class WhereClauseBuilder {
 
             String databaseColumnName = this.columnProvider.getDBColumnName(columnName);
 
-            if (condition == "contains") {
+            if (condition.equals("contains")) {
 
                 query.append(String.format(" %s like %s ", databaseColumnName, convertedValue));
-            } else if (condition == "not contains") {
+            } else if (condition.equals("not contains")) {
 
                 query.append(String.format(" %s not like %s ", databaseColumnName, convertedValue));
             } else {
@@ -105,9 +105,9 @@ public class WhereClauseBuilder {
                     // and, or
                     query.append(String.format(" %s ", jsonItem.getAsString()));
                 }
-
-                query.append(" ) ");
             }
+
+            query.append(" ) ");
         } else {
 
             throw new Exception("Unknown data type in json array.");
