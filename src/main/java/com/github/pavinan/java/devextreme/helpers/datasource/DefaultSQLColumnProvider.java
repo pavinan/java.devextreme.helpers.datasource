@@ -32,7 +32,7 @@ public class DefaultSQLColumnProvider implements SQLColumnProvider {
 
 	@Override
 	public String getDBValueConversion(String columnName, String condition, String value) {
-		if (condition == "contains" || condition == "not contains") {
+		if (condition.equals("contains") || condition.equals("not contains")) {
 			return String.format("'%%%s%%'", value);
 		}
 		return String.format("'%s'", value);
