@@ -21,7 +21,7 @@ public class WhereClauseBuilder {
 
     /**
      * Provide {@link SQLColumnProvider} implementation
-     * @param sqlColumnProvider
+     * @param sqlColumnProvider provider
      */
     public WhereClauseBuilder(SQLColumnProvider sqlColumnProvider) {
 

@@ -9,6 +9,8 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
 repositories {
@@ -28,4 +30,77 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.antlr:antlr4-runtime:4.7.1'
+}
+
+group = 'com.github.pavinan'
+version = '1.0.1'
+
+ ext."signing.keyId" = sonatypePGPKey
+ ext."signing.secretKeyRingFile" = sonatypePGPKeyFile
+ ext."signing.password" = sonatypePGPPass
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = "java.devextreme.helpers.datasource"
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = "java.devextreme.helpers.datasource"
+                description  = "Creates a sql where clause from DevExtreme remote datasource with filtering."
+                url = "https://github.com/pavinan/java.devextreme.helpers.datasource"
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://raw.githubusercontent.com/pavinan/java.devextreme.helpers.datasource/master/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id = "Bharat"
+                        name = "Bharat Kumar Bellamkonda"
+                        email = "bharat2147@yahoo.com"
+                    }                    
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/pavinan/java.devextreme.helpers.datasource.git'
+                    developerConnection = 'scm:git:https://github.com/pavinan/java.devextreme.helpers.datasource.git'
+                    url = 'https://github.com/pavinan/java.devextreme.helpers.datasource'
+                }
+            }
+        }        
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username = sonatypeUsername
+                password = sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
 }

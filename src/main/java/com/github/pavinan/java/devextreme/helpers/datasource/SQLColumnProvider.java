@@ -15,7 +15,7 @@ public interface SQLColumnProvider {
      /**
       * Convert json value to db value conversions if required
       * @param columnName json name
-      * @param condition =, <, "contains", "not contains" etc
+      * @param condition =, &lt;, "contains", "not contains" etc
       * @param value json value
       * @return converted value
       */
