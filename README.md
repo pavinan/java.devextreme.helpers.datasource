@@ -1,4 +1,6 @@
 # DevExtreme helpers remote datasource.
+[![Build status](https://pavinan.visualstudio.com/Public/_apis/build/status/java.devextreme.helpers.datasource)](https://pavinan.visualstudio.com/Public/_build/latest?definitionId=13)
+
 Ported from [DevExtreme.Helpers.DataSource](https://github.com/pavinan/DevExtreme.Helpers.DataSource) written in C#
 
 ```java
