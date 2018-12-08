@@ -4,25 +4,45 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
+/**
+ * Where clause builder
+ */
 public class WhereClauseBuilder {
 
     private SQLColumnProvider columnProvider;
 
+    /**
+     * Uses default {@link DefaultSQLColumnProvider}
+     */
     public WhereClauseBuilder() {
 
         this.columnProvider = new DefaultSQLColumnProvider();
     }
 
+    /**
+     * Provide {@link SQLColumnProvider} implementation
+     * @param sqlColumnProvider
+     */
     public WhereClauseBuilder(SQLColumnProvider sqlColumnProvider) {
 
         this.columnProvider = sqlColumnProvider;
     }
 
+    /**
+     * Creates default
+     * @return {@link WhereClauseBuilder}
+     */
     public static WhereClauseBuilder createDefault() {
 
         return new WhereClauseBuilder();
     }
 
+    /**
+     * Builds where clause
+     * @param jsonArray json array
+     * @return where clause sql string
+     * @throws Exception Exceptions
+     */
     public String buildFor(JsonArray jsonArray) throws Exception {
 
         StringBuilder sb = new StringBuilder();
