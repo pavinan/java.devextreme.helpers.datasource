@@ -85,6 +85,14 @@ public class UnitTests {
         parseAndTest(json);
     }
 
+    @Test
+    public void test9() throws Exception {
+
+        String json = "[[\"col1\", \"<\", 45], [\"col2\", \">\", 1000]]";
+
+        parseAndTest(json);
+    }
+
     private void parseAndTest(String json) throws Exception {
 
         JsonArray jArray = (JsonArray) (new JsonParser().parse(json));
