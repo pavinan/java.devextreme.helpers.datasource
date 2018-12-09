@@ -22,6 +22,7 @@ public class UnitTests {
 
     @Test
     public void test1() throws Exception {
+        
         String json = "[\"CustomerID\",\"=\",\"ALFKI\"]";
 
         parseAndTest(json);
