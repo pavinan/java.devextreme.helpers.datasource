@@ -93,6 +93,7 @@ publishing {
 }
 
 gradle.taskGraph.whenReady { taskGraph ->
+
     if (taskGraph.allTasks.any { it instanceof Sign }) {
 
         ext."signing.keyId" = sonatypePGPKey
