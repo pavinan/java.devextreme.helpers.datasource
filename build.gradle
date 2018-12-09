@@ -33,12 +33,9 @@ dependencies {
 }
 
 group = 'com.github.pavinan'
-version = '1.0.1'
+version = '1.0.1-SNAPSHOT'
 
- ext."signing.keyId" = sonatypePGPKey
- ext."signing.secretKeyRingFile" = sonatypePGPKeyFile
- ext."signing.password" = sonatypePGPPass
-
+ 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     classifier = 'sources'
@@ -92,6 +89,15 @@ publishing {
                 password = sonatypePassword
             }
         }
+    }
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.allTasks.any { it instanceof Sign }) {
+
+        ext."signing.keyId" = sonatypePGPKey
+        ext."signing.secretKeyRingFile" = sonatypePGPKeyFile
+        ext."signing.password" = sonatypePGPPass
     }
 }
 
