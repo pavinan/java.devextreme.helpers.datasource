@@ -5,7 +5,7 @@
             {
                 "name": "com.github.pavinan.java.devextreme.helpers.datasource",
                 "projectName": "com.github.pavinan.java.devextreme.helpers.datasource",
-                "workingDirectory": "c:\\Users\\Bharat-PC\\Source\\Repos\\java.devextreme.helpers.datasource",
+                "workingDirectory": "${workspaceFolder}",
                 "args": [],
                 "vmargs": [],
                 "env": {},
@@ -19,7 +19,7 @@
             {
                 "name": "com.github.pavinan.java.devextreme.helpers.datasource",
                 "projectName": "com.github.pavinan.java.devextreme.helpers.datasource",
-                "workingDirectory": "c:\\Users\\Bharat-PC\\Source\\Repos\\java.devextreme.helpers.datasource",
+                "workingDirectory": "${workspaceFolder}",
                 "args": [],
                 "vmargs": [],
                 "env": {},
