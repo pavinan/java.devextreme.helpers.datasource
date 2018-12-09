@@ -77,6 +77,14 @@ public class UnitTests {
         parseAndTest(json);
     }
 
+    @Test
+    public void test8() throws Exception {
+
+        String json = "[[\"col1\", \"<\", 45], [\"col2\", \"=\", true]]";
+
+        parseAndTest(json);
+    }
+
     private void parseAndTest(String json) throws Exception {
 
         JsonArray jArray = (JsonArray) (new JsonParser().parse(json));
