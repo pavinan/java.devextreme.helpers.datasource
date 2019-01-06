@@ -2,7 +2,7 @@
 [![Build status](https://pavinan.visualstudio.com/Public/_apis/build/status/java.devextreme.helpers.datasource)](https://pavinan.visualstudio.com/Public/_build/latest?definitionId=13) 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.pavinan/java.devextreme.helpers.datasource.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.pavinan%22%20AND%20a:%22java.devextreme.helpers.datasource%22)
 
-Ported from [DevExtreme.Helpers.DataSource](https://github.com/pavinan/DevExtreme.Helpers.DataSource) written in C#
+Ported from [DevExtreme.Helpers.DataSource](https://github.com/pavinan/DevExtreme.Helpers.DataSource) written in C#.
 
 ```java
 WhereClauseBuilder builder = new WhereClauseBuilder();
